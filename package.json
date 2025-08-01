@@ -1,0 +1,39 @@
+{
+  "name": "vite-elm-tpl",
+  "author": "Ricardo Casares",
+  "description": "A default template for building Elm applications using Vite.",
+  "version": "0.1.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "run-p dev:*",
+    "dev:vite": "vite --host",
+    "dev:test": "elm-test-rs --watch",
+    "test": "elm-test-rs",
+    "lint": "elm-review",
+    "build": "vite build",
+    "compile": "elm make src/Main.elm --output=/dev/null",
+    "preview": "run-s test lint build vite:preview",
+    "vite:preview": "vite preview",
+    "prebuild": "elm-tooling install",
+    "postinstall": "elm-tooling install",
+    "interop": "elm-ts-interop --output src/Main.elm.d.ts",
+    "upgrade": "elm-json upgrade && cd review && elm-json upgrade && cd .."
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.6",
+    "daisyui": "^5.0.35",
+    "elm-review": "^2.13.2",
+    "elm-tooling": "^1.15.1",
+    "elm-ts-interop": "^0.0.8",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^4.1.6",
+    "vite": "^7.0.6",
+    "vite-plugin-elm": "^3.0.1",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "dependencies": {
+    "ts-pattern": "^5.8.0",
+    "zod": "^4.0.14"
+  }
+}
